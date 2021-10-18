@@ -30,28 +30,40 @@ module.exports = class BinarySearchTree {
   }
 
   has(data) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.find(data) ? true : false;
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    let now = this.node;
+    while (now !== null) {
+      if (now.data === data) {
+        return now;
+      } else {
+        if (now.data < data) {
+          now = now.right;
+        } else if (now.data > data) {
+          now = now.left
+        }
+      }
+    }
+    return null
   }
 
-  remove(/* data */) {
+  remove(data) {
     throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let cop = this.node;
+    while(cop.left != null) cop = cop.left;
+    return cop.data
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let cop = this.node;
+    while(cop.right != null) cop = cop.right;
+    return cop.data
   }
 
 }
